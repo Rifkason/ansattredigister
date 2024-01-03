@@ -12,7 +12,7 @@ def get_collection(col):
 
 #henter ut all data som ligger i en mappe i mongodv.
 #in data er navn på mappen jeg ønsker og hente.
-def print_mappe(inndata):
+def print_mappe(inndata="elever"):
     col = get_collection(inndata).find()
     listeOfdata = []
     for c in col:
@@ -49,6 +49,8 @@ def rediger_objekt(indata="elever"):
     filter = {"fornavn": fornavn, "etternavn": etternavn}
     updatering = {'$set': {'fornavn': nyttfornavn, 'etternavn': nyttetternavn, 'alder': nyttalder, 'skole': nyskole}}
     col.update_one(filter, updatering)
+
+
 
 
 def menu_menu():
